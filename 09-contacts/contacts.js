@@ -64,9 +64,6 @@ const listContacts = () => {
     contacts.forEach((contact, i) => {
         console.log(`${i+1}. ${contact.name} - ${contact.phone}`);
     })
-    contacts.forEach((contact, i) => {
-        console.log(`${i+1}. ${contact.name} - ${contact.phone}`);
-    })
 
     return contacts;
 }

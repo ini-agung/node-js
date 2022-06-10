@@ -1,35 +1,14 @@
-const http = require('http');
-const fs = require('fs');
-const port = 3000;
-const renderHTML = (path, res) => {
-    fs.readFile(path, (error, data) => {
-        if (error) {
-            res.writeHead(404);
-            res.write('Not Found');
-        } else {
-            res.write(data)
-        }
-        res.end();
-    })
-}
-const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        'Content-Type': 'text/html',
-    });
-    const url = req.url;
-    console.log(url);
-    switch (url) {
-        case '/about':
-            renderHTML('./about.html', res)
-            break;
-        case '/contact':
-            renderHTML('./contact.html', res)
-            break;
+const express = require('express')
+const app = express()
 
-        default:
-            renderHTML('./index.html', res)
-            break;
-    }
-}).listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+app.get('/', function(req, res) {
+    res.sendFile('./layouts/index.html', { root: __dirname })
 })
+app.get('/about', function(req, res) {
+    res.sendFile('./layouts/about.html', { root: __dirname })
+})
+app.get('/contact', function(req, res) {
+    res.sendFile('./layouts/contact.html', { root: __dirname })
+})
+
+app.listen(3000)
