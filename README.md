@@ -1,2 +1,2 @@
 # node-js
-asdjkasdjknasdnkla sdkjh asdhl asdjkhasdhj 
+Berikut adalah tutorial untuk belajar NODE JS sederhana 
