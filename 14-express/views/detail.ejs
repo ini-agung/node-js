@@ -1,0 +1,21 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Detail Contact</h5>
+                <p class="card-text">
+                    <%= contact.nama %>
+                </p>
+                <p class="card-text">
+                    <%= contact.email %>
+                </p>
+                <p class="card-text">
+                    <%= contact.phone %>
+                </p>
+                <a href="/contact" class="badge btn btn-primary">Back &laquo;</a>
+                <a href="/contact/delete/<%=contact.email%> " class="badge btn btn-danger" onclick="return confirm('Delete?')">Hapus &laquo;</a>
+            </div>
+        </div>
+    </div>
+</div>
