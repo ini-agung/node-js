@@ -1,0 +1,59 @@
+<h2>
+    <a href="/contact/add">Tambah Data</a>
+</h2>
+<% if (msg.length > 0) { %>
+    <div class="alert alert-success" role="alert">
+        <%= msg %>
+    </div>
+    <% } %>
+        <table class="table table-hover mt-5">
+
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Handphone</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let i= 1;  %>
+                    <% if (contacts.length>0) { %>
+                        <%contacts.forEach(mhs => { %>
+                            <tr>
+                                <th scope="row">
+                                    <%= i++; %>
+                                </th>
+                                <td>
+                                    <%= mhs.nama %>
+                                </td>
+                                <td>
+                                    <%= mhs.email %>
+                                </td>
+                                <td>
+                                    <%= mhs.phone %>
+                                </td>
+                                <td>
+
+                                    <span class="badge rounded-pill bg-gradient">
+                                <a href="/contact/<%= mhs.email %>">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                            </span>
+                                    <span class="badge rounded-pill ">
+                                <a href="/contact/<%= mhs.email %>"><i class="bi bi-info"></i>
+                                </a>
+                            </span>
+                                </td>
+                            </tr>
+                            <% }); %>
+                                <% }else{ %>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="alert alert-danger fw-bold">Data Tidak Ditemukan</div>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+            </tbody>
+        </table>
